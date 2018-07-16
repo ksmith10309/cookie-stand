@@ -121,3 +121,43 @@ ulElThree.appendChild(liElTotalThree);
 var locationThreeSection = document.getElementById('locationThree');
 locationThreeSection.appendChild(ulElThree);
 
+
+var locationFour = {
+  storeName: 'Capitol Hill',
+  minCust: 20,
+  maxCust: 38,
+  avgSales: 2.3,
+  numCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  }
+};
+
+var arrFour = [];
+
+for (var i = 0; i < 15; i++) {
+  var salesPerHourFour = Math.round(locationFour.avgSales * locationFour.numCust());
+  arrFour.push(salesPerHourFour);
+}
+
+var totalFour = 0;
+
+for (var j = 0; j < 15; j++) {
+  totalFour += arrFour[j];  
+}
+
+var ulElFour = document.createElement('ul');
+ulElFour.textContent = locationFour.storeName;
+
+for (var k = 0; k < 15; k++) {
+  var liElFour = document.createElement('li');
+  liElFour.textContent = hours[k] + ': ' + arrFour[k] + ' cookies';
+  ulElFour.appendChild(liElFour);
+}
+
+var liElTotalFour = document.createElement('li');
+liElTotalFour.textContent = 'Total: ' + totalFour + ' cookies';
+ulElFour.appendChild(liElTotalFour);
+
+var locationFourSection = document.getElementById('locationFour');
+locationFourSection.appendChild(ulElFour);
+
