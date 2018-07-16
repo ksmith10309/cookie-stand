@@ -1,0 +1,14 @@
+body {
+    line-height: 20px;
+    margin: 20px;
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: circle;
+    margin-bottom: 20px;
+}
+
+.data {
+    font-family: Helvetica, sans-serif;
+}
