@@ -15,8 +15,8 @@ var locationOne = {
 var arrOne = [];
 
 for (var i = 0; i < 15; i++) {
-  var salesPerHour = Math.round(locationOne.avgSales * locationOne.numCust());
-  arrOne.push(salesPerHour);
+  var salesPerHourOne = Math.round(locationOne.avgSales * locationOne.numCust());
+  arrOne.push(salesPerHourOne);
 }
 
 var totalOne = 0;
@@ -25,18 +25,58 @@ for (var j = 0; j < 15; j++) {
   totalOne += arrOne[j];  
 }
 
-var ulEl = document.createElement('ul');
-ulEl.textContent = locationOne.storeName;
+var ulElOne = document.createElement('ul');
+ulElOne.textContent = locationOne.storeName;
 
 for (var k = 0; k < 15; k++) {
-  var liEl = document.createElement('li');
-  liEl.textContent = hours[k] + ': ' + arrOne[k] + ' cookies';
-  ulEl.appendChild(liEl);
+  var liElOne = document.createElement('li');
+  liElOne.textContent = hours[k] + ': ' + arrOne[k] + ' cookies';
+  ulElOne.appendChild(liElOne);
 }
 
-var liElTotal = document.createElement('li');
-liElTotal.textContent = 'Total: ' + totalOne + ' cookies';
-ulEl.appendChild(liElTotal);
+var liElTotalOne = document.createElement('li');
+liElTotalOne.textContent = 'Total: ' + totalOne + ' cookies';
+ulElOne.appendChild(liElTotalOne);
 
 var locationOneSection = document.getElementById('locationOne');
-locationOneSection.appendChild(ulEl);
+locationOneSection.appendChild(ulElOne);
+
+
+var locationTwo = {
+  storeName: 'SeaTac Airport',
+  minCust: 3,
+  maxCust: 24,
+  avgSales: 1.2,
+  numCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  }
+};
+
+var arrTwo = [];
+
+for (var i = 0; i < 15; i++) {
+  var salesPerHourTwo = Math.round(locationTwo.avgSales * locationTwo.numCust());
+  arrTwo.push(salesPerHourTwo);
+}
+
+var totalTwo = 0;
+
+for (var j = 0; j < 15; j++) {
+  totalTwo += arrTwo[j];  
+}
+
+var ulElTwo = document.createElement('ul');
+ulElTwo.textContent = locationTwo.storeName;
+
+for (var k = 0; k < 15; k++) {
+  var liElTwo = document.createElement('li');
+  liElTwo.textContent = hours[k] + ': ' + arrTwo[k] + ' cookies';
+  ulElTwo.appendChild(liElTwo);
+}
+
+var liElTotalTwo = document.createElement('li');
+liElTotalTwo.textContent = 'Total: ' + totalTwo + ' cookies';
+ulElTwo.appendChild(liElTotalTwo);
+
+var locationTwoSection = document.getElementById('locationTwo');
+locationTwoSection.appendChild(ulElTwo);
