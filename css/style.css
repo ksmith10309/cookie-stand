@@ -1,12 +1,27 @@
 body {
     line-height: 20px;
     margin: 20px;
+    background-color: white;
+    font-family: Georgia, serif;
 }
 
 ul {
     list-style-position: inside;
     list-style-type: circle;
     margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: salmon;
+    text-align: center;
+}
+
+img {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 70%;
 }
 
 .data {
