@@ -80,3 +80,44 @@ ulElTwo.appendChild(liElTotalTwo);
 
 var locationTwoSection = document.getElementById('locationTwo');
 locationTwoSection.appendChild(ulElTwo);
+
+
+var locationThree = {
+  storeName: 'Seattle Center',
+  minCust: 11,
+  maxCust: 38,
+  avgSales: 3.7,
+  numCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  }
+};
+
+var arrThree = [];
+
+for (var i = 0; i < 15; i++) {
+  var salesPerHourThree = Math.round(locationThree.avgSales * locationThree.numCust());
+  arrThree.push(salesPerHourThree);
+}
+
+var totalThree = 0;
+
+for (var j = 0; j < 15; j++) {
+  totalThree += arrThree[j];  
+}
+
+var ulElThree = document.createElement('ul');
+ulElThree.textContent = locationThree.storeName;
+
+for (var k = 0; k < 15; k++) {
+  var liElThree = document.createElement('li');
+  liElThree.textContent = hours[k] + ': ' + arrThree[k] + ' cookies';
+  ulElThree.appendChild(liElThree);
+}
+
+var liElTotalThree = document.createElement('li');
+liElTotalThree.textContent = 'Total: ' + totalThree + ' cookies';
+ulElThree.appendChild(liElTotalThree);
+
+var locationThreeSection = document.getElementById('locationThree');
+locationThreeSection.appendChild(ulElThree);
+
