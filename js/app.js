@@ -161,3 +161,42 @@ ulElFour.appendChild(liElTotalFour);
 var locationFourSection = document.getElementById('locationFour');
 locationFourSection.appendChild(ulElFour);
 
+
+var locationFive = {
+  storeName: 'Alki',
+  minCust: 2,
+  maxCust: 16,
+  avgSales: 4.6,
+  numCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  }
+};
+
+var arrFive = [];
+
+for (var i = 0; i < 15; i++) {
+  var salesPerHourFive = Math.round(locationFive.avgSales * locationFive.numCust());
+  arrFive.push(salesPerHourFive);
+}
+
+var totalFive = 0;
+
+for (var j = 0; j < 15; j++) {
+  totalFive += arrFive[j];  
+}
+
+var ulElFive = document.createElement('ul');
+ulElFive.textContent = locationFive.storeName;
+
+for (var k = 0; k < 15; k++) {
+  var liElFive = document.createElement('li');
+  liElFive.textContent = hours[k] + ': ' + arrFive[k] + ' cookies';
+  ulElFive.appendChild(liElFive);
+}
+
+var liElTotalFive = document.createElement('li');
+liElTotalFive.textContent = 'Total: ' + totalFive + ' cookies';
+ulElFive.appendChild(liElTotalFive);
+
+var locationFiveSection = document.getElementById('locationFive');
+locationFiveSection.appendChild(ulElFive);
