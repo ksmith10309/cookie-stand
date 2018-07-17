@@ -31,7 +31,7 @@ Store.prototype.hourlySales = function() {
     this.salesPerHour.push(salesThisHour);
     this.totalSales += salesThisHour;
   }
-}
+};
 
 Store.prototype.render = function() {
   this.hourlySales();
@@ -52,11 +52,12 @@ Store.prototype.render = function() {
   trEl.appendChild(tdElTotal);
 
   tableEl.appendChild(trEl);
-}
+};
 
+//create table
 var tableEl = document.createElement('table');
 
-//heading row
+//create heading row
 var trElHeading = document.createElement('tr');
 var thElEmpty = document.createElement('th');
 trElHeading.appendChild(thElEmpty);
@@ -73,22 +74,21 @@ trElHeading.appendChild(thElTotal);
 
 tableEl.appendChild(trElHeading);
 
-//data rows
+//create data rows using render prototype
 for (var i = 0; i < allStores.length; i++) {
   allStores[i].render();
 }
 
-//final row
+//create final row
 var trElFinal = document.createElement('tr');
 var thElFinalHeading = document.createElement('th');
 thElFinalHeading.textContent = 'Totals';
 trElFinal.appendChild(thElFinalHeading);
 
-//calculate and print the total for each column
-for (var i = 0; i < hours.length; i++) {
-  var tdElFinal = document.createElement('td');
-
+for (var i = 0; i < hours.length; i++) { 
   var columnTotal = 0;
+
+  var tdElFinal = document.createElement('td');
 
   for (var j = 0; j < allStores.length; j++) {
     columnTotal += allStores[j].salesPerHour[i];
@@ -100,7 +100,6 @@ for (var i = 0; i < hours.length; i++) {
   finalTotal += columnTotal;
 }
 
-//print final total to last column of final row
 var tdElFinalTotal = document.createElement('td');
 tdElFinalTotal.textContent = finalTotal;
 trElFinal.appendChild(tdElFinalTotal);
