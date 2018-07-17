@@ -1,7 +1,7 @@
 body {
     line-height: 20px;
     margin: 20px;
-    background-color: white;
+    background-color: grey;
     font-family: Georgia, serif;
 }
 
@@ -12,18 +12,55 @@ ul {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 30px;
     color: salmon;
     text-align: center;
+    line-height: 40px;
+    background-color: rgb(68, 54, 23);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    color: rgb(68, 54, 23);
+    font-family: 'Gaegu', cursive;
+}
+
+header {
+    width: 70%;
+    background-color: white;
+    margin: 20px auto;
+    height: 200px;
+}
+
+nav {
+    text-align: center;
+}
+
+.information {
+    width: 70%;
+    background-color: white;
+    margin: 20px auto;
+    height: 200px;
+    color: salmon;
 }
 
 img {
-    text-align: center;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 70%;
+    background-color: white;
+}
+
+.link {
+    padding: 0px 20px;
+    line-height: 30px;
+    color: salmon;
 }
 
 .data {
+    color: white;
     font-family: Helvetica, sans-serif;
 }
