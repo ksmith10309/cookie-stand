@@ -57,29 +57,31 @@ Store.prototype.render = function() {
 //create table
 var tableEl = document.createElement('table');
 
-//create heading row
-var theadEl = document.createElement('thead');
+//function for creating header row
+function createTableHeader() {
+  var theadEl = document.createElement('thead');
 
-var trElHeading = document.createElement('tr');
-trElHeading.setAttribute('id', 'tableHeading');
-var thElEmpty = document.createElement('th');
-trElHeading.appendChild(thElEmpty);
+  var trElHeading = document.createElement('tr');
+  trElHeading.setAttribute('id', 'tableHeading');
+  var thElEmpty = document.createElement('th');
+  trElHeading.appendChild(thElEmpty);
 
-for (var i = 0; i < hours.length; i++) {
-  var thEl = document.createElement('th');
-  thEl.textContent = hours[i];
-  trElHeading.appendChild(thEl);
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trElHeading.appendChild(thEl);
+  }
+
+  var thElTotal = document.createElement('th');
+  thElTotal.textContent = 'Daily Location Total';
+  trElHeading.appendChild(thElTotal);
+
+  theadEl.appendChild(trElHeading);
+  tableEl.appendChild(theadEl);
 }
+createTableHeader();
 
-var thElTotal = document.createElement('th');
-thElTotal.textContent = 'Daily Location Total';
-trElHeading.appendChild(thElTotal);
-
-theadEl.appendChild(trElHeading);
-tableEl.appendChild(theadEl);
-
-
-//create data rows using render prototype
+//use render prototype for creating body rows
 var tbodyEl = document.createElement('tbody');
 
 for (var i = 0; i < allStores.length; i++) {
@@ -88,36 +90,38 @@ for (var i = 0; i < allStores.length; i++) {
 
 tableEl.appendChild(tbodyEl);
 
+//function for creating footer row
+function createTableFooter() {
+  var tfootEl = document.createElement('tfoot');
 
-//create final row
-var tfootEl = document.createElement('tfoot');
+  var trElFinal = document.createElement('tr');
+  var thElFinalHeading = document.createElement('th');
+  thElFinalHeading.textContent = 'Totals';
+  trElFinal.appendChild(thElFinalHeading);
 
-var trElFinal = document.createElement('tr');
-var thElFinalHeading = document.createElement('th');
-thElFinalHeading.textContent = 'Totals';
-trElFinal.appendChild(thElFinalHeading);
+  for (var i = 0; i < hours.length; i++) { 
+    var columnTotal = 0;
 
-for (var i = 0; i < hours.length; i++) { 
-  var columnTotal = 0;
+    var tdElFinal = document.createElement('td');
 
-  var tdElFinal = document.createElement('td');
+    for (var j = 0; j < allStores.length; j++) {
+      columnTotal += allStores[j].salesPerHour[i];
+    }
 
-  for (var j = 0; j < allStores.length; j++) {
-    columnTotal += allStores[j].salesPerHour[i];
+    tdElFinal.textContent = columnTotal;
+    trElFinal.appendChild(tdElFinal);
+
+    finalTotal += columnTotal;
   }
 
-  tdElFinal.textContent = columnTotal;
-  trElFinal.appendChild(tdElFinal);
+  var tdElFinalTotal = document.createElement('td');
+  tdElFinalTotal.textContent = finalTotal;
+  trElFinal.appendChild(tdElFinalTotal);
 
-  finalTotal += columnTotal;
+  tfootEl.appendChild(trElFinal);
+  tableEl.appendChild(tfootEl);
 }
-
-var tdElFinalTotal = document.createElement('td');
-tdElFinalTotal.textContent = finalTotal;
-trElFinal.appendChild(tdElFinalTotal);
-
-tfootEl.appendChild(trElFinal);
-tableEl.appendChild(tfootEl);
+createTableFooter();
 
 //display table on page
 var mainEl = document.getElementById('main-section');
