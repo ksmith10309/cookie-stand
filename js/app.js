@@ -2,201 +2,111 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-var locationOne = {
-  storeName: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgSales: 6.3,
-  numCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+var allStores = [];
+
+var finalTotal = 0;
+
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Alki', 2, 16, 4.6);
+
+function Store(name, min, max, average) {
+  this.name = name;
+  this.minCust = min;
+  this.maxCust = max;
+  this.avgSales = average;
+
+  this.salesPerHour = [];
+  this.totalSales = 0;
+
+  allStores.push(this);
+}
+
+Store.prototype.hourlySales = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var customersThisHour = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+    var salesThisHour = Math.round(this.avgSales * customersThisHour);
+    this.salesPerHour.push(salesThisHour);
+    this.totalSales += salesThisHour;
   }
-};
-
-var arrOne = [];
-
-for (var i = 0; i < 15; i++) {
-  var salesPerHourOne = Math.round(locationOne.avgSales * locationOne.numCust());
-  arrOne.push(salesPerHourOne);
 }
 
-var totalOne = 0;
+Store.prototype.render = function() {
+  this.hourlySales();
 
-for (var j = 0; j < 15; j++) {
-  totalOne += arrOne[j];  
-}
+  var trEl = document.createElement('tr');
+  var thElDataHeading = document.createElement('th');
+  thElDataHeading.textContent = this.name;
+  trEl.appendChild(thElDataHeading);
 
-var ulElOne = document.createElement('ul');
-ulElOne.textContent = locationOne.storeName;
-
-for (var k = 0; k < 15; k++) {
-  var liElOne = document.createElement('li');
-  liElOne.textContent = hours[k] + ': ' + arrOne[k] + ' cookies';
-  ulElOne.appendChild(liElOne);
-}
-
-var liElTotalOne = document.createElement('li');
-liElTotalOne.textContent = 'Total: ' + totalOne + ' cookies';
-ulElOne.appendChild(liElTotalOne);
-
-var locationOneSection = document.getElementById('locationOne');
-locationOneSection.appendChild(ulElOne);
-
-
-var locationTwo = {
-  storeName: 'SeaTac Airport',
-  minCust: 3,
-  maxCust: 24,
-  avgSales: 1.2,
-  numCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  for (var i = 0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.salesPerHour[i];
+    trEl.appendChild(tdEl);
   }
-};
 
-var arrTwo = [];
+  var tdElTotal = document.createElement('td');
+  tdElTotal.textContent = this.totalSales;
+  trEl.appendChild(tdElTotal);
 
-for (var i = 0; i < 15; i++) {
-  var salesPerHourTwo = Math.round(locationTwo.avgSales * locationTwo.numCust());
-  arrTwo.push(salesPerHourTwo);
+  tableEl.appendChild(trEl);
 }
 
-var totalTwo = 0;
+var tableEl = document.createElement('table');
 
-for (var j = 0; j < 15; j++) {
-  totalTwo += arrTwo[j];  
+//heading row
+var trElHeading = document.createElement('tr');
+var thElEmpty = document.createElement('th');
+trElHeading.appendChild(thElEmpty);
+
+for (var i = 0; i < hours.length; i++) {
+  var thEl = document.createElement('th');
+  thEl.textContent = hours[i];
+  trElHeading.appendChild(thEl);
 }
 
-var ulElTwo = document.createElement('ul');
-ulElTwo.textContent = locationTwo.storeName;
+var thElTotal = document.createElement('th');
+thElTotal.textContent = 'Daily Location Total';
+trElHeading.appendChild(thElTotal);
 
-for (var k = 0; k < 15; k++) {
-  var liElTwo = document.createElement('li');
-  liElTwo.textContent = hours[k] + ': ' + arrTwo[k] + ' cookies';
-  ulElTwo.appendChild(liElTwo);
+tableEl.appendChild(trElHeading);
+
+//data rows
+for (var i = 0; i < allStores.length; i++) {
+  allStores[i].render();
 }
 
-var liElTotalTwo = document.createElement('li');
-liElTotalTwo.textContent = 'Total: ' + totalTwo + ' cookies';
-ulElTwo.appendChild(liElTotalTwo);
+//final row
+var trElFinal = document.createElement('tr');
+var thElFinalHeading = document.createElement('th');
+thElFinalHeading.textContent = 'Totals';
+trElFinal.appendChild(thElFinalHeading);
 
-var locationTwoSection = document.getElementById('locationTwo');
-locationTwoSection.appendChild(ulElTwo);
+//calculate and print the total for each column
+for (var i = 0; i < hours.length; i++) {
+  var tdElFinal = document.createElement('td');
 
+  var columnTotal = 0;
 
-var locationThree = {
-  storeName: 'Seattle Center',
-  minCust: 11,
-  maxCust: 38,
-  avgSales: 3.7,
-  numCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  for (var j = 0; j < allStores.length; j++) {
+    columnTotal += allStores[j].salesPerHour[i];
   }
-};
 
-var arrThree = [];
+  tdElFinal.textContent = columnTotal;
+  trElFinal.appendChild(tdElFinal);
 
-for (var i = 0; i < 15; i++) {
-  var salesPerHourThree = Math.round(locationThree.avgSales * locationThree.numCust());
-  arrThree.push(salesPerHourThree);
+  finalTotal += columnTotal;
 }
 
-var totalThree = 0;
+//print final total to last column of final row
+var tdElFinalTotal = document.createElement('td');
+tdElFinalTotal.textContent = finalTotal;
+trElFinal.appendChild(tdElFinalTotal);
 
-for (var j = 0; j < 15; j++) {
-  totalThree += arrThree[j];  
-}
+tableEl.appendChild(trElFinal);
 
-var ulElThree = document.createElement('ul');
-ulElThree.textContent = locationThree.storeName;
-
-for (var k = 0; k < 15; k++) {
-  var liElThree = document.createElement('li');
-  liElThree.textContent = hours[k] + ': ' + arrThree[k] + ' cookies';
-  ulElThree.appendChild(liElThree);
-}
-
-var liElTotalThree = document.createElement('li');
-liElTotalThree.textContent = 'Total: ' + totalThree + ' cookies';
-ulElThree.appendChild(liElTotalThree);
-
-var locationThreeSection = document.getElementById('locationThree');
-locationThreeSection.appendChild(ulElThree);
-
-
-var locationFour = {
-  storeName: 'Capitol Hill',
-  minCust: 20,
-  maxCust: 38,
-  avgSales: 2.3,
-  numCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-  }
-};
-
-var arrFour = [];
-
-for (var i = 0; i < 15; i++) {
-  var salesPerHourFour = Math.round(locationFour.avgSales * locationFour.numCust());
-  arrFour.push(salesPerHourFour);
-}
-
-var totalFour = 0;
-
-for (var j = 0; j < 15; j++) {
-  totalFour += arrFour[j];  
-}
-
-var ulElFour = document.createElement('ul');
-ulElFour.textContent = locationFour.storeName;
-
-for (var k = 0; k < 15; k++) {
-  var liElFour = document.createElement('li');
-  liElFour.textContent = hours[k] + ': ' + arrFour[k] + ' cookies';
-  ulElFour.appendChild(liElFour);
-}
-
-var liElTotalFour = document.createElement('li');
-liElTotalFour.textContent = 'Total: ' + totalFour + ' cookies';
-ulElFour.appendChild(liElTotalFour);
-
-var locationFourSection = document.getElementById('locationFour');
-locationFourSection.appendChild(ulElFour);
-
-
-var locationFive = {
-  storeName: 'Alki',
-  minCust: 2,
-  maxCust: 16,
-  avgSales: 4.6,
-  numCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-  }
-};
-
-var arrFive = [];
-
-for (var i = 0; i < 15; i++) {
-  var salesPerHourFive = Math.round(locationFive.avgSales * locationFive.numCust());
-  arrFive.push(salesPerHourFive);
-}
-
-var totalFive = 0;
-
-for (var j = 0; j < 15; j++) {
-  totalFive += arrFive[j];  
-}
-
-var ulElFive = document.createElement('ul');
-ulElFive.textContent = locationFive.storeName;
-
-for (var k = 0; k < 15; k++) {
-  var liElFive = document.createElement('li');
-  liElFive.textContent = hours[k] + ': ' + arrFive[k] + ' cookies';
-  ulElFive.appendChild(liElFive);
-}
-
-var liElTotalFive = document.createElement('li');
-liElTotalFive.textContent = 'Total: ' + totalFive + ' cookies';
-ulElFive.appendChild(liElTotalFive);
-
-var locationFiveSection = document.getElementById('locationFive');
-locationFiveSection.appendChild(ulElFive);
+//display table on page
+var mainEl = document.getElementById('main-section');
+mainEl.appendChild(tableEl);
