@@ -45,6 +45,11 @@ nav {
     margin: 20px auto;
     height: 200px;
     color: salmon;
+    padding-top: 20px;
+}
+
+.information p {
+    margin: 20px;
 }
 
 img {
