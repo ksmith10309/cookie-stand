@@ -51,13 +51,15 @@ Store.prototype.render = function() {
   tdElTotal.textContent = this.totalSales;
   trEl.appendChild(tdElTotal);
 
-  tableEl.appendChild(trEl);
+  tbodyEl.appendChild(trEl);
 };
 
 //create table
 var tableEl = document.createElement('table');
 
 //create heading row
+var theadEl = document.createElement('thead');
+
 var trElHeading = document.createElement('tr');
 trElHeading.setAttribute('id', 'tableHeading');
 var thElEmpty = document.createElement('th');
@@ -73,14 +75,23 @@ var thElTotal = document.createElement('th');
 thElTotal.textContent = 'Daily Location Total';
 trElHeading.appendChild(thElTotal);
 
-tableEl.appendChild(trElHeading);
+theadEl.appendChild(trElHeading);
+tableEl.appendChild(theadEl);
+
 
 //create data rows using render prototype
+var tbodyEl = document.createElement('tbody');
+
 for (var i = 0; i < allStores.length; i++) {
   allStores[i].render();
 }
 
+tableEl.appendChild(tbodyEl);
+
+
 //create final row
+var tfootEl = document.createElement('tfoot');
+
 var trElFinal = document.createElement('tr');
 var thElFinalHeading = document.createElement('th');
 thElFinalHeading.textContent = 'Totals';
@@ -105,7 +116,8 @@ var tdElFinalTotal = document.createElement('td');
 tdElFinalTotal.textContent = finalTotal;
 trElFinal.appendChild(tdElFinalTotal);
 
-tableEl.appendChild(trElFinal);
+tfootEl.appendChild(trElFinal);
+tableEl.appendChild(tfootEl);
 
 //display table on page
 var mainEl = document.getElementById('main-section');
