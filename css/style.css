@@ -73,6 +73,7 @@ img {
 table {
     font-size: 12px;
     background-color: white;
+    margin: 20px;
 }
 
 thead {
@@ -97,4 +98,32 @@ tfoot {
     border-top: 2px solid black;
     font-weight: bold;
     background-color: lightsalmon;
+}
+
+form {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 20px;
+    color: white;
+    font-family: Georgia, serif;
+}
+.form-elements {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 250px;
+    height: 30px;
+}
+span {
+    display: block;
+}
+
+button {
+    font-weight: bold;
+    background-color: lightsalmon;
+    height: 35px;
+    width: 80px;
 }
