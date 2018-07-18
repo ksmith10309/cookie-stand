@@ -6,7 +6,35 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <main id = "main-section"></main>
+    <main>
+      <section id = "main-section">
+
+      </section>
+      <section id = "form-section">
+        <form id = "addStore">
+          <div class = "form-elements">
+            <span>Store Name</span>
+            <input type = "text" name = "storeName">
+          </div>
+          <div class = "form-elements">
+            <span>Minimum Customers Per Hour</span>
+            <input type = "number" name = "minCustomers">
+          </div>
+          <div class = "form-elements">
+            <span>Maximum Customers Per Hour</span>
+            <input type = "number" name = "maxCustomers">
+          </div>
+          <div class = "form-elements">
+            <span>Average Cookie Sales Per Customer</span>
+            <input type = "number" name = "averageSales">
+          </div>
+          <div class = "form-elements">
+            <button type = "submit">SUBMIT</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
     <script src="js/app.js"></script>
     </body>
 </html>
