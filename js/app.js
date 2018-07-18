@@ -57,10 +57,10 @@ Store.prototype.render = function() {
 //create table
 var tableEl = document.createElement('table');
 
+//create header of table
+var theadEl = document.createElement('thead');
 //function for creating header row
 function createTableHeader() {
-  var theadEl = document.createElement('thead');
-
   var trElHeading = document.createElement('tr');
   trElHeading.setAttribute('id', 'tableHeading');
   var thElEmpty = document.createElement('th');
@@ -81,19 +81,18 @@ function createTableHeader() {
 }
 createTableHeader();
 
-//use render prototype for creating body rows
+//create body of table
 var tbodyEl = document.createElement('tbody');
-
+//use render prototype for creating body rows
 for (var i = 0; i < allStores.length; i++) {
   allStores[i].render();
 }
-
 tableEl.appendChild(tbodyEl);
 
+//create footer of table
+var tfootEl = document.createElement('tfoot');
 //function for creating footer row
 function createTableFooter() {
-  var tfootEl = document.createElement('tfoot');
-
   var trElFinal = document.createElement('tr');
   var thElFinalHeading = document.createElement('th');
   thElFinalHeading.textContent = 'Totals';
@@ -126,3 +125,28 @@ createTableFooter();
 //display table on page
 var mainEl = document.getElementById('main-section');
 mainEl.appendChild(tableEl);
+
+var formEl = document.getElementById('addStore');
+formEl.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var newStoreName = event.target.storeName.value;
+  var newMin = event.target.minCustomers.value;
+  var newMax = event.target.maxCustomers.value;
+  var newSales = event.target.averageSales.value;
+
+  new Store(newStoreName, newMin, newMax, newSales);
+
+  //delete contents of table body and table footer
+  tbodyEl.textContent = '';
+  tfootEl.textContent = '';
+
+  //use render prototype for creating body rows again
+  for (var i = 0; i < allStores.length; i++) {
+    allStores[i].render();
+  }
+  tableEl.appendChild(tbodyEl);
+
+  //call function for creating footer row
+  createTableFooter();
+});
