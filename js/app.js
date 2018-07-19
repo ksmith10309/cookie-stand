@@ -130,30 +130,13 @@ var formEl = document.getElementById('addStore');
 formEl.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  var error1 = document.getElementById('error1');
-  error1.style.visibility = 'hidden';
-  var error2 = document.getElementById('error2');
-  error2.style.visibility = 'hidden';
-  var error3 = document.getElementById('error3');
-  error3.style.visibility = 'hidden';
-  var error4 = document.getElementById('error4');
-  error4.style.visibility = 'hidden';
-
   var newStoreName = event.target.storeName.value;
   var newMin = event.target.minCustomers.value;
   var newMax = event.target.maxCustomers.value;
   var newSales = event.target.averageSales.value;
 
   //input validation
-  if (newStoreName === '') {
-    error1.style.visibility = 'visible';
-  } else if (newMin === '' || newMin < 0) {
-    error2.style.visibility = 'visible';
-  } else if (newMax === '' || newMin < 0) {
-    error3.style.visibility = 'visible';
-  } else if (newSales === '' || newMin < 0) {
-    error4.style.visibility = 'visible';
-  } else if (newMin > newMax) {
+  if (parseInt(newMin) > parseInt(newMax)) {
     alert('Minimum customers per hour should be less than maximum customers per hour');
   } else {
     new Store(newStoreName, newMin, newMax, newSales);
