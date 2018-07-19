@@ -26,15 +26,14 @@ header {
     top: 0;
     left: 0;
     background-color: salmon;
-    overflow-x: hidden;
-    padding-top: 92px;
+    padding-top: 47px;
     color: white;
     border-right: 1px solid white;
 }
 
 .side-nav a {
     padding: 10px;
-    border-bottom: 1px solid white;
+    border-top: 1px solid white;
     text-decoration: none;
     color: white;
     display: block;
@@ -54,6 +53,7 @@ img {
 .link {
     padding: 0px 20px;
     line-height: 30px;
+    font-size: 20px;
 }
 
 .link:hover {
@@ -152,16 +152,28 @@ button {
 footer {
     padding: 20px 0px 30px 0px;
     border-bottom: none;
+    margin-bottom: 53px;
 }
 
-.centered {
+.companyName {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Gaegu', cursive;
+    font-family: 'Monoton', cursive;
     color: white;
     font-size: 60px;
+    line-height: 60px;
+}
+
+.companyNameSide {
+    background-color: lightsalmon;
+    font-family: 'Monoton', cursive;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 46px;
+    padding: 10px;
 }
 
 h1 {
@@ -222,3 +234,6 @@ h2 {
     clear: right;
 }
 
+.map {
+    width: 100%;
+}
