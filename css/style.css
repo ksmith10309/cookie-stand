@@ -1,7 +1,7 @@
 body {
     line-height: 20px;
     margin: 20px;
-    background-color: grey;
+    background-color: white;
     font-family: Georgia, serif;
 }
 
@@ -11,23 +11,6 @@ ul {
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 30px;
-    color: salmon;
-    text-align: center;
-    line-height: 40px;
-    background-color: rgb(68, 54, 23);
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 20px;
-    text-align: center;
-    line-height: 30px;
-    color: rgb(68, 54, 23);
-    font-family: 'Gaegu', cursive;
-}
-
 header {
     width: 70%;
     background-color: white;
@@ -35,34 +18,57 @@ header {
     height: 200px;
 }
 
-nav {
-    text-align: center;
+.side-nav {
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: salmon;
+    padding-top: 47px;
+    color: white;
+    border-right: 1px solid white;
 }
 
-.information {
-    width: 70%;
-    background-color: white;
-    margin: 20px auto;
-    height: 200px;
-    color: salmon;
-    padding-top: 20px;
-}
-
-.information p {
-    margin: 20px;
+.side-nav a {
+    padding: 10px;
+    border-top: 1px solid white;
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: right;
 }
 
 img {
     display: block;
     margin: 20px auto;
-    width: 70%;
     background-color: white;
+}
+
+.family {
+    width: 100%;
 }
 
 .link {
     padding: 0px 20px;
     line-height: 30px;
+    font-size: 20px;
+}
+
+.link:hover {
+    background-color: lightsalmon;
+}
+
+.home {
+    padding: 0px 20px;
+    line-height: 30px;
+    text-decoration: none;
     color: salmon;
+}
+
+.home:hover {
+    color: black;
 }
 
 .data {
@@ -121,8 +127,9 @@ input {
     height: 30px;
 }
 
-span {
+.label {
     display: block;
+    color: black;
 }
 
 button {
@@ -131,4 +138,102 @@ button {
     height: 35px;
     width: 80px;
     position: relative;
+}
+
+.container, footer {
+    position: relative;
+    text-align: center;
+    left: 5%;
+    border-bottom: 1px solid lightsalmon;
+    padding-bottom: 10px;
+    background-color: white;
+}
+
+footer {
+    padding: 20px 0px 30px 0px;
+    padding-bottom: 23px;
+    border-bottom: none;
+}
+
+.companyName {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Monoton', cursive;
+    color: white;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.companyNameSide {
+    background-color: lightsalmon;
+    font-family: 'Monoton', cursive;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 46px;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    background-color: lightsalmon;
+    width: 50%;
+    color: white;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    line-height: 50px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: left;
+    line-height: 30px;
+    color: rgb(68, 54, 23);
+    border-bottom: 1px solid lightsalmon;
+}
+
+.column {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.information {
+    width: 50%;
+    margin: 20px auto;
+    height: 200px;
+    color: salmon;
+    padding-top: 20px;
+}
+
+.information p {
+    margin: 20px;
+}
+
+.text {
+    margin: 0 25% 20px 25%;
+    text-align: justify;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.right {
+    margin-right: 20px;
+    float: right;
+}
+
+.left {
+    margin-left: 50px;
+    float: left;
+    clear: right;
+}
+
+.map {
+    width: 100%;
 }
