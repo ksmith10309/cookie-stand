@@ -141,17 +141,13 @@ formEl.addEventListener('submit', function(event) {
   } else {
     new Store(newStoreName, newMin, newMax, newSales);
 
-    //delete contents of table body and table footer
-    tbodyEl.textContent = '';
+    //delete current footer row
     tfootEl.textContent = '';
 
-    //use render prototype for creating body rows again
-    for (var i = 0; i < allStores.length; i++) {
-      allStores[i].render();
-    }
-    tableEl.appendChild(tbodyEl);
+    //use render prototype to create new body row
+    allStores[allStores.length-1].render();
 
-    //call function for creating footer row
+    //call function to create new footer row
     createTableFooter();
   }
 });
