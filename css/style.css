@@ -2,7 +2,7 @@ body {
     line-height: 20px;
     margin: 20px;
     background-color: white;
-    font-family: Georgia, serif;
+    font-family: 'Georgia', serif;
     color: rgb(70,68,55);
 }
 
@@ -20,7 +20,6 @@ ul {
     top: 0;
     left: 0;
     background-color: salmon;
-    padding-top: 47px;
     color: white;
     border-right: 1px solid white;
 }
@@ -32,19 +31,29 @@ ul {
     display: block;
     color: white;
     text-align: right;
+    font-family: 'Gugi', cursive;
 }
 
 .side-nav .sales {
     color: rgb(70,68,55);
 }
+
 img {
     display: block;
     margin: 20px auto;
     background-color: white;
+    border: 1px solid lightsalmon;
+    box-shadow: 0 5px 10px rgb(70, 68, 55);
+}
+
+img.fish {
+    border: 0px;
+    box-shadow: none;
 }
 
 .family {
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .link {
@@ -68,11 +77,6 @@ img {
 
 .home:hover {
     color: rgb(70,68,55);
-}
-
-.data {
-    color: white;
-    font-family: Helvetica, sans-serif;
 }
 
 table {
@@ -107,12 +111,15 @@ tfoot {
     background-color: lightsalmon;
 }
 
+.sales-page {
+    font-family: 'Arial', sans-serif;
+}
+
 form {
     font-size: 12px;
     font-weight: bold;
     margin: 20px;
     color: white;
-    font-family: Georgia, serif;
 }
 
 .form-elements {
@@ -149,8 +156,7 @@ button {
 }
 
 footer {
-    padding: 20px 0px 30px 0px;
-    padding-bottom: 30px;
+    padding: 0px 0px 10px 0px;
     border-bottom: none;
 }
 
@@ -172,19 +178,21 @@ footer {
     text-align: center;
     font-size: 40px;
     line-height: 40px;
-    margin-bottom: 46px;
+    margin-top: 46px;
+    margin-bottom: 47px;
     padding: 10px;
 }
 
 h1 {
     font-size: 30px;
-    text-align: center;
+    text-align: left;
+    padding-left: 23%;
     background-color: lightsalmon;
-    width: 50%;
+    width: 25%;
     color: white;
-    margin-left: 30px;
     margin-bottom: 30px;
-    line-height: 50px;
+    line-height: 49px;
+    font-family: 'Gugi', cursive;
 }
 
 h2 {
