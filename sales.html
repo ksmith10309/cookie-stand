@@ -7,35 +7,35 @@
   </head>
   <body class="sales-page">
     <main>
-      <section id="main-section">
-
-      </section>
+      <section id="main-section"></section>
       <section id="form-section">
         <form id="addStore">
+          <fieldset>
+            <legend>Add A New Store:</legend>
           <div class="form-elements">
-            <span class="label">Store Name</span>
+            <label>Store Name</label>
             <input type="text" name="storeName" required>
           </div>
           <div class="form-elements">
-            <span class="label">Minimum Customers Per Hour</span>
+            <label>Minimum Customers Per Hour</label>
             <input type="number" min="0" name="minCustomers" required>
           </div>
           <div class="form-elements">
-            <span class="label">Maximum Customers Per Hour</span>
+            <label>Maximum Customers Per Hour</label>
             <input type="number" min="0" name="maxCustomers" required>
           </div>
           <div class="form-elements">
-            <span class="label">Average Cookie Sales Per Customer</span>
+            <label>Average Cookie Sales Per Customer</label>
             <input type="number" min="0" step="0.1" name = "averageSales" required>
           </div>
-          <div class = "form-elements">
-            <button type = "submit">SUBMIT</button>
+          <div class="form-elements">
+            <button type="submit">SUBMIT</button>
           </div>
+        </fieldset>
         </form>
-      </section>
-    <a href="index.html" class="home">Back To Home Page</a>
+      </section> 
+      <a href="index.html" class="home">Back To Home Page</a>
     </main>
-
     <script src="js/app.js"></script>
     </body>
 </html>

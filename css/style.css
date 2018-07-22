@@ -6,12 +6,6 @@ body {
     color: rgb(70,68,55);
 }
 
-ul {
-    list-style-position: inside;
-    list-style-type: circle;
-    margin-bottom: 20px;
-}
-
 .side-nav {
     height: 100%;
     width: 25%;
@@ -51,7 +45,7 @@ img.fish {
     box-shadow: none;
 }
 
-.family {
+img.family {
     width: 100%;
     margin-bottom: 40px;
 }
@@ -66,84 +60,6 @@ img.fish {
 
 .link:hover {
     background-color: lightsalmon;
-}
-
-.home {
-    padding: 0px 20px;
-    line-height: 30px;
-    text-decoration: none;
-    color: salmon;
-}
-
-.home:hover {
-    color: rgb(70,68,55);
-}
-
-table {
-    font-size: 12px;
-    background-color: white;
-    margin: 20px;
-}
-
-thead {
-    background-color: salmon;
-    color: white;
-}
-
-table tr:nth-child(even) {
-    background-color: rgb(200,200,200)
-}
-
-th, td {
-    vertical-align: middle;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid rgb(150,150,150);
-}
-
-th {
-    font-weight: bold;
-}
-
-tfoot {
-    border-top: 2px solid rgb(70,68,55);
-    font-weight: bold;
-    background-color: lightsalmon;
-}
-
-.sales-page {
-    font-family: 'Arial', sans-serif;
-}
-
-form {
-    font-size: 12px;
-    font-weight: bold;
-    margin: 20px;
-    color: white;
-}
-
-.form-elements {
-    display: inline-block;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
-
-input {
-    width: 250px;
-    height: 30px;
-}
-
-.label {
-    display: block;
-    color: rgb(70,68,55);
-}
-
-button {
-    font-weight: bold;
-    background-color: lightsalmon;
-    height: 35px;
-    width: 80px;
-    position: relative;
 }
 
 .container, footer {
@@ -245,4 +161,92 @@ h2 {
 
 .bottom-margin {
     margin-bottom: 30px;
+}
+
+
+.sales-page {
+    font-family: 'Arial', sans-serif;
+}
+
+table {
+    font-size: 12px;
+    background-color: white;
+    width: 100%;
+}
+
+thead {
+    background-color: salmon;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: rgb(200,200,200)
+}
+
+th, td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgb(150,150,150);
+}
+
+th {
+    font-weight: bold;
+}
+
+tfoot {
+    border-top: 2px solid rgb(70,68,55);
+    font-weight: bold;
+    background-color: lightsalmon;
+}
+
+form {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px;
+    width: 100%;
+}
+
+fieldset {
+    border: 1px solid rgb(150,150,150);
+}
+
+legend {
+    color: salmon;
+    margin-left: 25px;
+}
+
+.form-elements {
+    display: inline-block;
+    margin: 10px 25px 25px 25px;
+}
+
+label {
+    display: block;
+    color: rgb(70,68,55);
+}
+
+input {
+    width: 250px;
+    height: 30px;
+}
+
+button {
+    font-weight: bold;
+    background-color: lightsalmon;
+    height: 35px;
+    width: 80px;
+    position: relative;
+}
+
+.home {
+    margin-top: 40px;
+    display: block;
+    text-decoration: none;
+    color: salmon;
+}
+
+.home:hover {
+    color: rgb(70,68,55);
 }
