@@ -68,7 +68,6 @@ img.family {
     left: 5%;
     border-bottom: 1px solid lightsalmon;
     padding-bottom: 10px;
-    background-color: white;
 }
 
 footer {
@@ -215,6 +214,7 @@ fieldset {
 legend {
     color: salmon;
     margin-left: 25px;
+    font-size: 14px;
 }
 
 .form-elements {
@@ -245,6 +245,8 @@ button {
     display: block;
     text-decoration: none;
     color: salmon;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .home:hover {
