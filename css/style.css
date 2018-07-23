@@ -18,7 +18,20 @@ body {
     border-right: 1px solid white;
 }
 
-.side-nav a {
+.company-name-side {
+    background-color: lightsalmon;
+    font-family: 'Monoton', cursive;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    margin-top: 41px;
+    margin-bottom: 50px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 10px;
+}
+
+.link {
     padding: 10px;
     border-top: 1px solid white;
     text-decoration: none;
@@ -26,10 +39,31 @@ body {
     color: white;
     text-align: right;
     font-family: 'Gugi', cursive;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 200ms all;
 }
 
-.side-nav .sales {
+.link.sales {
     color: rgb(70,68,55);
+}
+
+.link:hover {
+    background-color: lightsalmon;
+}
+
+.container, footer {
+    position: relative;
+    text-align: center;
+    left: 5%;
+    border-bottom: 1px solid lightsalmon;
+    padding-bottom: 10px;
+}
+
+footer {
+    padding: 0px 0px 10px 0px;
+    border-bottom: none;
 }
 
 img {
@@ -50,31 +84,6 @@ img.family {
     margin-bottom: 40px;
 }
 
-.link {
-    padding: 0px 20px;
-    line-height: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    transition: 350ms all;
-}
-
-.link:hover {
-    background-color: lightsalmon;
-}
-
-.container, footer {
-    position: relative;
-    text-align: center;
-    left: 5%;
-    border-bottom: 1px solid lightsalmon;
-    padding-bottom: 10px;
-}
-
-footer {
-    padding: 0px 0px 10px 0px;
-    border-bottom: none;
-}
-
 .company-name {
     position: absolute;
     top: 55%;
@@ -85,17 +94,6 @@ footer {
     font-size: 60px;
     line-height: 60px;
     max-width: 40%;
-}
-
-.company-name-side {
-    background-color: lightsalmon;
-    font-family: 'Monoton', cursive;
-    text-align: center;
-    font-size: 40px;
-    line-height: 40px;
-    margin-top: 46px;
-    margin-bottom: 47px;
-    padding: 10px;
 }
 
 h1 {
@@ -135,19 +133,15 @@ h2 {
     font-size: 16px;
 }
 
-.right {
-    margin-right: 20px;
-    float: right;
-}
-
 .left {
     margin-left: 50px;
     float: left;
     clear: both;
 }
 
-.map {
-    width: 100%;
+.right {
+    margin-right: 20px;
+    float: right;
 }
 
 .top-margin {
@@ -160,6 +154,10 @@ h2 {
 
 .bottom-margin {
     margin-bottom: 30px;
+}
+
+.map {
+    width: 100%;
 }
 
 
